@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Robert Nouri</title>
+  <meta http-equiv="refresh" content="0; url=en/index.html">
+  <script>
+    // Einfache Sprach-Weiterleitung basierend auf Browser-Einstellung
+    const lang = (navigator.language || "en").slice(0, 2);
+    const supported = ["en", "de", "ja"];
+    const target = supported.includes(lang) ? lang : "en";
+    window.location.replace(target + "/index.html");
+  </script>
+</head>
+<body>
+  <p>Weiterleitung … / Redirecting … / リダイレクト中…</p>
+  <p><a href="en/index.html">English</a> · <a href="de/index.html">Deutsch</a> · <a href="ja/index.html">日本語</a></p>
+</body>
+</html>
