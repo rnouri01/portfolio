@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calorie Tracker — Robert Nouri</title>
+  <meta name="description" content="Calorie Tracker — Robert Nouriのモバイルアプリプロジェクト。">
+
+  <link rel="icon" href="../assets/favicon.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=Zen+Old+Mincho&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav container">
+      <a href="index.html" class="nav__logo">Robert Nouri</a>
+      <ul class="nav__links">
+        <li><a href="index.html#about">プロフィール</a></li>
+        <li><a href="index.html#skills">スキル</a></li>
+        <li><a href="index.html#projects">プロジェクト</a></li>
+        <li><a href="index.html#contact">お問い合わせ</a></li>
+      </ul>
+      <div class="lang-switch">
+        <a href="../en/calorie-tracker.html">EN</a>
+        <a href="../de/calorie-tracker.html">DE</a>
+        <a href="calorie-tracker.html" aria-current="true">JA</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero project-hero container">
+      <a class="back-link" href="index.html#projects">&larr; プロジェクト一覧に戻る</a>
+      <span class="eyebrow">プロジェクト · モバイルアプリ</span>
+      <h1>Calorie Tracker</h1>
+      <p>Calorie Trackerは、食事をスナップ写真のように手軽に記録できるアプリです。料理を撮影すると、アプリが皿の上の食べ物を認識し、栄養素を自動で計算します。データベースを検索して数値を入力する手間はなく、結果を確認し、必要に応じて修正するだけで済みます。1日の概要、週ごとの統計、レシピのアイデアが、食事管理を負担にすることなく、自分の食習慣を理解する助けになります。技術面では、画像認識と実績のある栄養データベースを組み合わせたコンセプトで、Progressive Web Appとして設計されているため、あらゆるモバイルブラウザで動作し、ネイティブアプリのようにホーム画面へ追加できます。</p>
+    </section>
+
+    <section class="project-blocks container">
+      <article class="project-block">
+        <div class="project-block__text">
+          <h2>一目でわかる</h2>
+          <p>ホーム画面は、毎日の食事記録をひと目で確認できる画面です。大きなリングには摂取カロリー、消費カロリー、残りのカロリーが表示され、3本の進捗バーが炭水化物、タンパク質、脂質の1日の目標に対する進み具合を示します。その下には、写真・時刻・カロリー付きの食事がコンパクトに並び、タップひとつで編集できます。画面下部の2つのボタンから、カメラでその場で撮影するか、ギャラリーから写真をアップロードして新しい食事を追加できます。技術面では、ブラウザのカメラAPIを通じて撮影し、記録はバックエンドのデータベースに保存され、直近の数日分はService Workerがキャッシュしてオフラインでも閲覧できる設計です。</p>
+        </div>
+       <figure class="project-block__media">
+          <img src="../assets/Home.png" alt="Home-Screen mit generellen Informationen" width="360" height="774">
+        </figure>
+      </article>
+
+      <article class="project-block">
+        <div class="project-block__text">
+          <h2>新しい投稿を作成する</h2>
+          <p>撮影後、新しい投稿の画面にはアプリが認識した内容が表示されます。食材ごとに食品名とグラム単位の重さが1行ずつ並び、数秒で確認・修正できます。足りない食材は「Add food」で行を追加でき、下部の栄養詳細には炭水化物、脂質、タンパク質、カロリーがまとめて表示されます。自動認識は完璧ではないため、食事をリストに追加する前に、最終的な判断は必ずユーザーに委ねられます。裏側では、サーバー上の画像認識モデルが写真を解析し、認識された食品をUSDA FoodData Centralなどの栄養データベースの値と照合します。</p>
+        </div>
+        <figure class="project-block__media">
+          <img src="../assets/Food Entry.png" alt="Neuen Eintrag anlegen" width="360" height="774">
+        </figure>
+      </article>
+
+      <article class="project-block">
+        <div class="project-block__text">
+          <h2>ユーザー統計</h2>
+          <p>統計画面は、日々の記録を傾向として見える化します。日・週・月・年の切り替えと上部の矢印で任意の期間に移動でき、1日あたりの平均カロリーもすぐに確認できます。棒グラフは1日ごとの摂取カロリー、折れ線グラフは体重の推移を示し、進捗バーは炭水化物、タンパク質、脂質、水分の目標にどれだけ近づいているかを表します。丸みを帯びたバーと明確なラベルにより、小さな画面でもデータを読み取りやすくしています。技術面では、バックエンドで事前に集計したデータをもとに、軽量なJavaScriptライブラリでグラフを描画します。</p>
+        </div>
+        <figure class="project-block__media">
+          <img src="../assets/Stats.png" alt="Übersicht der Nutzerstatistiken" width="360" height="774">
+        </figure>
+      </article>
+
+      <article class="project-block">
+        <div class="project-block__text">
+          <h2>レシピのアイデア</h2>
+          <p>レシピ画面は、「今日は何を食べよう？」という毎日の悩みに応えます。時間帯に合わせたパーソナルな挨拶が表示され、フィルター付きの検索バーで目的の料理にすばやくたどり着けるほか、バーガー、パスタ、ご飯、寿司、ワッフルなどのカテゴリーから気軽に探せます。ハートを付けた料理は「Meals You Liked」に集まり、「Meal Ideas」では調理時間とカロリーが付いた新しい提案をひと目で確認できます。ハートをタップするだけで、料理をお気に入りに保存できます。裏側では、レシピの提案をAPIが提供し、カロリー値は記録した食事と同じ栄養データベースから取得するため、すべての数値に一貫性があります。</p>
+        </div>
+        <figure class="project-block__media">
+          <img src="../assets/Recipes.png" alt="Rezeptvorschläge" width="360" height="774">
+        </figure>
+      </article>
+
+      <article class="project-block">
+        <div class="project-block__text">
+          <h2>ユーザープロフィール</h2>
+          <p>プロフィール画面は、個人に関する情報をひとつにまとめた画面です。上部には名前、メールアドレス、年齢、体重、1日のカロリー目標が表示され、鉛筆アイコンから編集できます。その下の設定リストは、Account、Nutrition sources、Report a bug、Privacy policy、Terms of use、Helpに整理されています。「Nutrition sources」では栄養値の出典が明示されるため、データの信頼性を高められます。個人の健康データは機微な情報であるため、このコンセプトでは認証済みアカウントを採用し、必要最小限のデータのみを保存します。</p>
+        </div>
+        <figure class="project-block__media">
+          <img src="../assets/Profile.png" alt="Nutzerprofilseite" width="360" height="774">
+        </figure>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Robert Nouri · <a href="../impressum.html">運営者情報（Impressum）</a></p>
+  </footer>
+
+  <button type="button" class="back-to-top" aria-label="ページの先頭へ">
+    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none"
+       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>

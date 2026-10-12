@@ -39,6 +39,7 @@
   /* Layout */
   --content-max: 1120px;
   --radius: 4px;
+  --radius-m3: 16px;
   --transition: 200ms ease;
 }
 
@@ -347,6 +348,108 @@ html[lang="ja"] .lead { font-style: normal; }
 .placeholder { color: var(--color-accent-red); }
 
 /* ==========================================================================
+   Projekte (Cards auf der Startseite)
+   ========================================================================== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-3);
+}
+.project-card {
+  display: block;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  transition: transform var(--transition), border-color var(--transition);
+}
+.project-card:hover,
+.project-card:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--color-accent-blue);
+}
+.project-card:focus-visible {
+  outline: 2px solid var(--color-accent-blue);
+  outline-offset: 2px;
+}
+.project-card h3 { margin-bottom: 4px; }
+
+/* Bild-Platzhalter in der Card – ersetzbar durch ein <img> */
+.project-card__image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16 / 10;
+  margin-bottom: var(--space-2);
+  background: var(--color-bg);
+  border: 1px dashed var(--color-neutral);
+  border-radius: var(--radius-m3);
+  font-size: var(--text-sm);
+  color: var(--color-neutral);
+  overflow: hidden;
+}
+.project-card__image:has(img) { border: 1px solid var(--color-border); }
+.project-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ==========================================================================
+   Projektseite (z. B. calorie-tracker.html)
+   ========================================================================== */
+.hero.project-hero { padding-block: var(--space-8) var(--space-4); }
+.project-blocks { padding-top: var(--space-4); }
+
+.back-link {
+  display: block;
+  width: fit-content;
+  margin-bottom: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-ink-muted);
+  transition: color var(--transition);
+}
+.back-link:hover,
+.back-link:focus-visible { color: var(--color-accent-blue); }
+
+/* Text und Screen im Wechsel: ungerade Blöcke = Text links, gerade = Text rechts */
+.project-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: var(--space-7);
+  padding-block: var(--space-6);
+}
+.project-block:nth-child(even) .project-block__media { order: -1; }
+.project-block__text h2 { font-size: var(--text-xl); }
+.project-block__text p:last-child { margin-bottom: 0; }
+
+/* Phone-Screen (Proportion 390 × 844) */
+.project-block__media {
+  width: 100%;
+  max-width: 280px;
+  margin: 0;
+  justify-self: center;
+}
+.project-block__media img {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+.screen-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 390 / 844;
+  background: var(--color-surface);
+  border: 1px dashed var(--color-neutral);
+  border-radius: var(--radius);
+  font-size: var(--text-sm);
+  color: var(--color-neutral);
+}
+
+/* ==========================================================================
    Responsive
    ========================================================================== */
 @media (max-width: 720px) {
@@ -355,4 +458,44 @@ html[lang="ja"] .lead { font-style: normal; }
     --text-2xl: 2rem;
   }
   .nav__links { display: none; } /* wird später per JS als Mobile-Menü ergänzt */
+
+  /* Projektseite: Screen und Text untereinander, Screen zuerst */
+  .project-block { grid-template-columns: 1fr; gap: var(--space-4); }
+  .project-block__media { order: -1; }
+}
+
+/* ==========================================================================
+   Zurück nach oben
+   ========================================================================== */
+.back-to-top {
+  position: fixed;
+  right: var(--space-3);
+  bottom: var(--space-3);
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius);
+  background: var(--color-accent-blue);
+  color: #fff;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(var(--space-1));
+  transition: opacity var(--transition), transform var(--transition),
+              background var(--transition), visibility var(--transition);
+}
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.back-to-top:hover { background: var(--color-ink); }
+.back-to-top:focus-visible {
+  outline: 2px solid var(--color-accent-blue);
+  outline-offset: 2px;
 }

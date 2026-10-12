@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calorie Tracker — Robert Nouri</title>
+  <meta name="description" content="Calorie Tracker – Mobile-App-Projekt von Robert Nouri.">
+
+  <link rel="icon" href="../assets/favicon.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=Zen+Old+Mincho&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav container">
+      <a href="index.html" class="nav__logo">Robert Nouri</a>
+      <ul class="nav__links">
+        <li><a href="index.html#about">Über mich</a></li>
+        <li><a href="index.html#skills">Fähigkeiten</a></li>
+        <li><a href="index.html#projects">Projekte</a></li>
+        <li><a href="index.html#contact">Kontakt</a></li>
+      </ul>
+      <div class="lang-switch">
+        <a href="../en/calorie-tracker.html">EN</a>
+        <a href="calorie-tracker.html" aria-current="true">DE</a>
+        <a href="../ja/calorie-tracker.html">JA</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero project-hero container">
+      <a class="back-link" href="index.html#projects">&larr; Zurück zu den Projekten</a>
+      <span class="eyebrow">Projekt · Mobile App</span>
+      <h1>Calorie Tracker</h1>
+      <p>Calorie Tracker macht aus jeder Mahlzeit einen Schnappschuss: Man fotografiert sein Essen, die App erkennt, was auf dem Teller liegt, und berechnet die Nährwerte. Statt lange in Datenbanken zu suchen und Zahlen einzutippen, prüft man das Ergebnis, passt es bei Bedarf an und macht mit seinem Tag weiter. Eine klare Tagesübersicht, Wochenstatistiken und Rezeptideen helfen dabei, die eigenen Essgewohnheiten zu verstehen, ohne dass Ernährung zur lästigen Pflicht wird. Im Hintergrund kombiniert das Konzept Bilderkennung mit etablierten Nährwertdatenbanken und ist als Progressive Web App angelegt, sodass es in jedem mobilen Browser läuft und wie eine native App zum Startbildschirm hinzugefügt werden kann.</p>
+    </section>
+
+    <section class="project-blocks container">
+      <article class="project-block">
+        <div class="project-block__text">
+          <h2>Alles auf einen Blick</h2>
+          <p>Der Home-Screen ist das tägliche Ernährungstagebuch auf einen Blick. Ein großer Ring zeigt, wie viele Kalorien bereits aufgenommen, verbrannt und noch verfügbar sind, während drei Fortschrittsbalken Kohlenhydrate, Protein und Fett im Verhältnis zum Tagesziel darstellen. Darunter erscheint jede Mahlzeit als kompakter Eintrag mit Foto, Uhrzeit und Kalorien und lässt sich mit einem Tipp bearbeiten. Über die beiden Buttons am unteren Rand wird eine neue Mahlzeit entweder direkt per Kamera aufgenommen oder aus der Galerie hochgeladen. Technisch greift die App über die Kamera-Schnittstelle des Browsers auf die Kamera zu, die Einträge liegen in einer Datenbank im Backend, und ein Service Worker hält die letzten Tage für die Offline-Ansicht bereit.</p>
+        </div>
+        <figure class="project-block__media">
+          <img src="../assets/Home.png" alt="Home-Screen mit generellen Informationen" width="360" height="774">
+        </figure>
+      </article>
+
+      <article class="project-block">
+        <div class="project-block__text">
+          <h2>Einfach neue Einträge hinzufügen</h2>
+          <p>Nach dem Foto zeigt der Food-Entry-Screen, was die App erkannt hat. Jede Zutat erscheint in einer eigenen Zeile mit Lebensmittel und Gewicht in Gramm und lässt sich in Sekunden prüfen und korrigieren. Fehlt etwas, fügt „Add food“ eine weitere Zeile hinzu; darunter fassen die Nährwertdetails Kohlenhydrate, Fett, Protein und Kalorien zusammen. Da keine automatische Erkennung perfekt ist, behält man bei jeder Mahlzeit das letzte Wort, bevor sie zur Liste hinzugefügt wird. Im Hintergrund analysiert ein Bilderkennungsmodell auf dem Server das Foto, und die erkannten Lebensmittel werden mit den Werten einer Nährwertdatenbank wie USDA FoodData Central abgeglichen.</p>
+        </div>
+        <figure class="project-block__media">
+          <img src="../assets/Food Entry.png" alt="Neuen Eintrag anlegen" width="360" height="774">
+        </figure>
+      </article>
+
+      <article class="project-block">
+        <div class="project-block__text">
+          <h2>Nutzerstatistiken</h2>
+          <p>Der Stats-Screen macht aus den täglichen Einträgen Trends sichtbar. Mit der Umschaltung zwischen Tag, Woche, Monat und Jahr sowie den Pfeilen oben lässt sich durch beliebige Zeiträume blättern, und der durchschnittliche Kalorienwert ist sofort ablesbar. Ein Balkendiagramm zeigt die tägliche Kalorienaufnahme, ein Liniendiagramm verfolgt den Verlauf des Körpergewichts, und Fortschrittsbalken verdeutlichen, wie nah man den Zielen für Kohlenhydrate, Protein, Fett und Wasser ist. Abgerundete Balken und klare Beschriftungen halten die Daten auch auf kleinen Displays gut lesbar. Technisch werden die Diagramme mit einer schlanken JavaScript-Bibliothek gezeichnet, und zwar auf Basis von Daten, die das Backend vorab aggregiert.</p>
+        </div>
+        <figure class="project-block__media">
+          <img src="../assets/Stats.png" alt="Übersicht der Nutzerstatistiken" width="360" height="774">
+        </figure>
+      </article>
+
+      <article class="project-block">
+        <div class="project-block__text">
+          <h2>Rezeptideen</h2>
+          <p>Der Rezepte-Screen beantwortet die tägliche Frage „Was esse ich heute?“. Eine persönliche Begrüßung passt sich der Tageszeit an, eine Suchleiste mit Filteroptionen führt schnell zum passenden Gericht und eine Kategorienleiste mit Burgern, Pasta, Reis, Sushi und Waffeln lädt zum Stöbern ein. Mit einem Herz markierte Gerichte sammeln sich unter „Meals You Liked“, während „Meal Ideas“ neue Vorschläge mit Zubereitungszeit und Kalorien auf einen Blick zeigt. Ein Tipp aufs Herz speichert ein Gericht als Favorit. Im Hintergrund liefert die API die Rezeptvorschläge und die Kalorienwerte stammen aus derselben Nährwertdatenbank wie bei den erfassten Mahlzeiten, sodass alle Zahlen zusammenpassen.</p>
+        </div>
+        <figure class="project-block__media">
+          <img src="../assets/Recipes.png" alt="Rezeptvorschläge" width="360" height="774">
+        </figure>
+      </article>
+
+      <article class="project-block">
+        <div class="project-block__text">
+          <h2>Nutzerprofil</h2>
+          <p>Der Profile-Screen bündelt alles Persönliche an einem Ort. Oben stehen Name, E-Mail-Adresse, Alter, Gewicht und das tägliche Kalorienziel, die sich über das Stift-Symbol bearbeiten lassen. Darunter gliedert eine übersichtliche Einstellungsliste die Bereiche Account, Nutrition sources, Report a bug, Privacy policy, Terms of use und Help. Der Eintrag „Nutrition sources“ macht transparent, woher die Nährwerte stammen, denn Ernährungsdaten sollen vertrauenswürdig sein. Da persönliche Gesundheitsdaten sensibel sind, setzt das Konzept auf authentifizierte Konten und speichert nur, was wirklich benötigt wird.</p>
+        </div>
+        <figure class="project-block__media">
+          <img src="../assets/Profile.png" alt="Nutzerprofilseite" width="360" height="774">
+        </figure>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Robert Nouri · <a href="../impressum.html">Impressum</a></p>
+  </footer>
+
+  <button type="button" class="back-to-top" aria-label="Zum Seitenanfang">
+    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none"
+       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
+  </button>
+  <script src="../js/script.js"></script>
+</body>
+</html>
